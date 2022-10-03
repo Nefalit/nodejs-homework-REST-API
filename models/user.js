@@ -3,7 +3,6 @@ const Joi = require('joi');
 
 const { handleMongooseSchemaError } = require('../helpers');
 
-
 // mongoose shema
 
 const userSchema = new Schema(
@@ -26,6 +25,10 @@ const userSchema = new Schema(
       type: String,
       default: '',
     },
+    avatarURL: {
+      type: String,
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -47,9 +50,7 @@ const loginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-
 // __________________________
-
 
 const schemas = {
   registerSchema,
